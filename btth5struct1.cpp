@@ -9,19 +9,16 @@ struct Student{
     double id;
     int grade;
 };
-
 void display(const Student& student) {
     printf("Ten: %s\nTuoi: %d\nId: %g\nDiem so: %d\n", student.name, student.age, student.id, student.grade);
-}
-
+};
 void update(struct Student& student, const char name[100], int age, double id, int grade) {
     strncat(student.name, name, sizeof(student.name) - strlen(student.name) - 1);
     student.name[sizeof(student.name) - 1] = '\0';
     student.age = age;
     student.id = id;
     student.grade = grade;
-}
-
+};
 int main() {
     Student information[MAX_STUDENTS];
 
@@ -45,12 +42,10 @@ int main() {
         
         update(information[i], name, age, id, grade);
     };
-
     printf("\nThong tin sinh vien:\n");
     for (int i = 0; i < MAX_STUDENTS; ++i) {
         display(information[i]);
     };
-
     printf("\nNhap so luong sinh vien can cap nhat: ", information);
     int studentNumber;
     scanf("%d", &studentNumber);
